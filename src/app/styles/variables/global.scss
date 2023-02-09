@@ -10,6 +10,9 @@
   --font-l: var(--font-size-l) / var(--font-line-l)  var(--font-family-main);
 
 
-  //Размеры
-  --navbar-height: 50px
+  //Размеры шапки
+  --navbar-height: 50px;
+  //Размеры бокового меню
+  --sidebar-width: 300px;
+  --sidebar-width-collpased: 80px
 }
