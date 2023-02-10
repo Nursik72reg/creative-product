@@ -5,6 +5,18 @@ import {BuildOptions} from "./types/config";
 export function buildLoaders(options: BuildOptions):webpack.RuleSetRule[]{
     const {isDev} = options
 
+    // @babel/preset-env преобразует новый стандарт в ES2015
+    const babelLoader =  {
+        test: /\.(ts|tsx|js)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ['@babel/preset-env']
+            }
+        }
+    }
+
     const fileLoader = {
             test: /\.(png|jpe?g|gif|woff|woff2)$/i,
             use: [
@@ -47,6 +59,7 @@ export function buildLoaders(options: BuildOptions):webpack.RuleSetRule[]{
     }
 
     return  [
+        babelLoader,
         typescriptLoader,
         styleLoader,
         svgLoader,
