@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
 const AboutPage = React.lazy(() => import('./ui/AboutPage'));
 
-export {AboutPage}
+export { AboutPage };
