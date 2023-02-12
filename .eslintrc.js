@@ -18,8 +18,11 @@ module.exports = {
     plugins: [
         'react',
         '@typescript-eslint',
+        // Плагин для i18n не разрешает писать в jsx безтранслейта
+        'i18next',
     ],
 
+    // описываються конкретные правила
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -37,6 +40,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'max-len': ['error', { code: 140 }],
+        'i18next/no-literal-string': ['error', { markupOnly: true }],
     },
 
     globals: {
