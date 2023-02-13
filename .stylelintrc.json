@@ -1,7 +1,6 @@
 {
   "extends": "stylelint-config-standard-scss",
   "rules": {
-    "ignoreFiles": ["build/css/**.css"],
     "indentation": [4],
     "selector-class-pattern": null
   }
