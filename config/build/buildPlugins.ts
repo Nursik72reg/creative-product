@@ -26,9 +26,10 @@ export function buildPlugins({ paths, isDev }: BuildOptions):webpack.WebpackPlug
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-        // Плагин для dev-server, обновление страницы без перезагрузки
+        // Плагины для dev-server, обновление страницы без перезагрузки
         new webpack.HotModuleReplacementPlugin(),
-        new ReactRefreshWebpackPlugin(),
+        // overlay:false убирает iframe
+        new ReactRefreshWebpackPlugin({ overlay: false }),
 
     ];
 }
