@@ -20,6 +20,7 @@ export const BugButton = ({ className }: BugButtonProps) => {
     }, [error]);
 
     return (
+        // eslint-disable-next-line i18next/no-literal-string
         <Button onClick={onThrow} className={classNames('', {}, [className])}>
             throw Error
         </Button>
