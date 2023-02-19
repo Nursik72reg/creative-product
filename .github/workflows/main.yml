@@ -10,7 +10,7 @@ jobs:
     # Среды для запуска job
     strategy:
       matrix:
-        os: [macos-latest]
+        os: [ubuntu-latest]
         node: [17.x]
     # Система на которой будет запускаться job
     runs-on: ${{ matrix.os }}
