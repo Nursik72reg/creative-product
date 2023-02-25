@@ -4,10 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-    ],
+    extends: ['plugin:react/recommended', 'airbnb'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -16,19 +13,17 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: [
-        'react',
-        '@typescript-eslint',
+    plugins: ['react', '@typescript-eslint',
         // Плагин для i18n не разрешает писать в jsx безтранслейта
-        'i18next',
-    ],
-
+        'i18next'],
     // описываються конкретные правила
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
-        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx', '.ts'] }],
+        'react/jsx-filename-extension': [2, {
+            extensions: ['.js', '.jsx', '.tsx', '.ts'],
+        }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'warn',
@@ -40,11 +35,24 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'max-len': ['error', { code: 140, ignoreComments: true }],
-        'i18next/no-literal-string': ['error', { markupOnly: true }],
+        'max-len': ['error', {
+            code: 140,
+            ignoreComments: true,
+        }],
+        'i18next/no-literal-string': ['error', {
+            markupOnly: true,
+            ignoreAttribute: ['data-testid', 'to'],
+        }],
+        'no-param-reassign': 'off',
     },
-
     globals: {
         __IS_DEV__: true,
     },
+    // Для тестов оключаем правила i18next
+    overrides: [{
+        files: ['**/src/**/*.test.{ts,tsx}'],
+        rules: {
+            'i18next/no-literal-string': 'off',
+        },
+    }],
 };

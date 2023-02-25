@@ -2,15 +2,11 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({ paths, isDev }: BuildOptions):webpack.WebpackPluginInstance[] {
-    const devPlugins = [
-        new webpack.HotModuleReplacementPlugin(),
-        new ReactRefreshWebpackPlugin(),
-    ];
-
-    return [
+    const plugins = [
         // Плагин для html
         new HtmlWebpackPlugin({
             template: paths.html,
@@ -26,9 +22,21 @@ export function buildPlugins({ paths, isDev }: BuildOptions):webpack.WebpackPlug
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-        // Плагин для dev-server, обновление страницы без перезагрузки
-        new webpack.HotModuleReplacementPlugin(),
-        new ReactRefreshWebpackPlugin(),
 
     ];
+
+    if (isDev) {
+        plugins.push(
+            // Плагины для dev-server, обновление страницы без перезагрузки
+            new webpack.HotModuleReplacementPlugin(),
+            // overlay:false убирает iframe
+            new ReactRefreshWebpackPlugin({ overlay: false }),
+            // Плагин для анализа бандла
+            new BundleAnalyzerPlugin({
+                openAnalyzer: false,
+            }),
+        );
+    }
+
+    return plugins;
 }
