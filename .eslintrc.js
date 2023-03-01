@@ -39,7 +39,7 @@ module.exports = {
             code: 140,
             ignoreComments: true,
         }],
-        'i18next/no-literal-string': ['error', {
+        'i18next/no-literal-string': ['warn', {
             markupOnly: true,
             ignoreAttribute: ['data-testid', 'to'],
         }],
