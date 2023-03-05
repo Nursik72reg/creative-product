@@ -1,5 +1,10 @@
 import {
-    ReactNode, MouseEvent, useState, useRef, useEffect, useCallback,
+    ReactNode,
+    MouseEvent,
+    useState,
+    useRef,
+    useEffect,
+    useCallback,
 } from 'react';
 import cls from './Modal.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -29,7 +34,6 @@ export const Modal = (props: ModalProps) => {
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
-        [cls[theme]]: true,
     };
 
     const closeHandler = useCallback(() => {
@@ -66,10 +70,11 @@ export const Modal = (props: ModalProps) => {
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
                 <div className={cls.overlay} onClick={closeHandler}>
-                    <div className={cls.content} onClick={onContentClick}>{children}</div>
+                    <div className={cls.content} onClick={onContentClick}>
+                        {children}
+                    </div>
                 </div>
             </div>
         </Portal>
-
     );
 };
