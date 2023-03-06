@@ -17,14 +17,6 @@ const ThemeProvider:FC<ThemeProviderProps> = ({ children, initialTheme }) => {
         setTheme,
     }), [theme]);
 
-    useEffect(() => {
-        document.body.className = theme;
-
-        return () => {
-            document.body.className = theme;
-        };
-    }, [theme]);
-
     return (
         <ThemeContext.Provider value={defaultProps}>
             {children}
