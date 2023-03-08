@@ -34,7 +34,7 @@ export const Modal = (props: ModalProps) => {
     const [isMounted, setIsMounted] = useState(false);
     // ReturnType тип возврощяет так или иная функция
     const timeRef = useRef<ReturnType<typeof setTimeout>>();
-
+    const { theme } = useTheme();
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
@@ -82,7 +82,7 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className])}>
+            <div className={classNames(cls.Modal, mods, [className, theme, 'appModal'])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div className={cls.content} onClick={onContentClick}>
                         {children}
