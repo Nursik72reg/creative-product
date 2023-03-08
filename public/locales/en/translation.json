@@ -3,5 +3,8 @@
   "Страница не найдена": "Not found page",
   "Произошла непредвиденная ошибка": "An unexpected error has occurred",
   "Обновить страницу": "Refresh the page",
-  "Короткая версия": "En"
+  "Короткая версия": "En",
+  "Войти": "To come in",
+  "Введите username": "Enter username",
+  "Введите пароль": "Enter password"
 }
