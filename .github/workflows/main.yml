@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [ 16.x ]
         # Система на которой будет запускаться job
     # Шаги представляют собой последовательность задач, которые будут выполняться как часть задания.
     steps:
