@@ -1,51 +1,40 @@
-name: installing, building, testing, linting
+name: linting, testing, building
 on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master, develop ]
-
+    branches: [ master ]
 jobs:
-  integration:
-    # Среды для запуска job
+  # Среды для запуска job
+  pipeline:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        node: [17.x]
-    # Система на которой будет запускаться job
-    runs-on: ${{ matrix.os }}
-
+        node-version: [ 17.x ]
+        # Система на которой будет запускаться job
     # Шаги представляют собой последовательность задач, которые будут выполняться как часть задания.
     steps:
       - uses: actions/checkout@v2
-      - name: Starting Node.js ${{ matrix.node }}
+      - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node }}
-
-      - name: install node modules
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
         run: npm install
-
-        if: always()
       - name: build production project
         run: npm run build:prod
-
         if: always()
-      - name: linting ts
+      - name: linting typescript
         run: npm run lint:ts
-
         if: always()
       - name: linting css
         run: npm run lint:scss
-
-        if: always()
       - name: unit testing
-        run: npm run test:unit
-
         if: always()
+        run: npm run test:unit
       - name: build storybook
         run: npm run storybook:build
-
         if: always()
       - name: screenshot testing
         run: npm run test:ui:ci
+        if: always()
