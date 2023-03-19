@@ -1,3 +1,5 @@
 {
-  "Главная": "Main"
+  "Главная": "Main",
+  "Ошибка логина": "Error login or password",
+  "Форма авторизации": "Login form"
 }

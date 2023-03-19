@@ -16,4 +16,12 @@
     // Размеры бокового меню
     --sidebar-width: 300px;
     --sidebar-width-collpased: 80px;
+
+    // z--Index
+    --modal-z-index: 10;
+
+    // Цвет
+    --overlay-color: rgba(0 0 0 / 60%);
+    --red-light: #dc3636;
+    --red-dark: #910303;
 }

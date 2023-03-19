@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { Navbar } from '@/widgets/Navbar';
 import { ThemeDecorator } from '../../../../config/storybook/decorator/themeDecorator';
+import { StoreDecorator } from '../../../../config/storybook/decorator/storeDecorator';
 
 export default {
     title: 'widget/Navbar',
@@ -12,8 +13,14 @@ const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...Navbar} />
 
 export const Light = Template.bind({});
 Light.args = {};
+Light.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const AuthNavbar = Template.bind({});
+AuthNavbar.args = {};
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+    user: { authData: {} },
+})];

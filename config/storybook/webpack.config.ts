@@ -33,5 +33,9 @@ export default ({ config }:{config: webpack.Configuration}) => {
     // Монтируем свой loader для svg
     config.module.rules.push(styleLoader(true), svgLoader());
 
+    config.plugins.push(new webpack.DefinePlugin({
+        __IS_DEV__: true,
+    }));
+
     return config;
 };
