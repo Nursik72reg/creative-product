@@ -22,7 +22,9 @@ export function buildPlugins({ paths, isDev }: BuildOptions):webpack.WebpackPlug
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-
+        new BundleAnalyzerPlugin({
+            openAnalyzer: false,
+        }),
     ];
 
     if (isDev) {
@@ -32,9 +34,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions):webpack.WebpackPlug
             // overlay:false убирает iframe
             new ReactRefreshWebpackPlugin({ overlay: false }),
             // Плагин для анализа бандла
-            new BundleAnalyzerPlugin({
-                openAnalyzer: false,
-            }),
+
         );
     }
 
