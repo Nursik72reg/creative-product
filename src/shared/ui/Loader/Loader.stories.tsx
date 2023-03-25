@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta, addDecorator } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
 import { Loader } from '@/shared/ui/Loader/Loader';

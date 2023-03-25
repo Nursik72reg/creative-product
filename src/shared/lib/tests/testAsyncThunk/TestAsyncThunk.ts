@@ -1,6 +1,5 @@
-import { AsyncThunkAction, Dispatch } from '@reduxjs/toolkit';
+import { AsyncThunkAction } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { loginByUserName } from '@/features/AuthByUsername/model/services/loginByUserName/loginByUserName';
 
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
     dispatch: jest.MockedFn<any>;
