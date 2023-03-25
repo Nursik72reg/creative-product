@@ -1,20 +1,21 @@
-import React, { useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Navbar.module.scss';
-import { BugButton } from '@/app/providers/ErrorBoundary';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { LoginModal } from '@/features/AuthByUsername';
 import { getAuthData, userActions } from '@/entities/User';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface NavbarProps {
     className?:string
 }
 
-export const Navbar = ({ className }:NavbarProps) => {
+export const Navbar = memo((props: NavbarProps) => {
+    const { className } = props;
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
     const authData = useSelector(getAuthData);
 
@@ -26,7 +27,7 @@ export const Navbar = ({ className }:NavbarProps) => {
         setIsAuthModal(true);
     }, []);
 
-    const onLogout = useCallback(() => {
+    const onLogout = useCallback(async () => {
         dispatch(userActions.logout());
     }, [dispatch]);
 
@@ -53,8 +54,7 @@ export const Navbar = ({ className }:NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            <BugButton />
             {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
         </div>
     );
-};
+});

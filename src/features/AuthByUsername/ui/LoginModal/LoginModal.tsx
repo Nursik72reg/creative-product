@@ -8,7 +8,7 @@ const LoginForm = lazy(() => import('../LoginForm/LoginForm'));
 interface LoginModalProps {
     className?: string;
     isOpen: boolean;
-    onClose: ()=> void
+    onClose: () => void
 }
 export const LoginModal = (props: LoginModalProps) => {
     const { className, isOpen, onClose } = props;
@@ -20,7 +20,7 @@ export const LoginModal = (props: LoginModalProps) => {
             lazy
         >
             <Suspense fallback={<Loader />}>
-                <LoginForm />
+                <LoginForm onClose={onClose} />
             </Suspense>
         </Modal>
     );

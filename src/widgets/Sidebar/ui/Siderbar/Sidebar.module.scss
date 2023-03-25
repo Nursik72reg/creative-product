@@ -32,22 +32,6 @@
     justify-content: center;
 }
 
-.item {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.icon {
-    fill: var(--inverted-seconary-color);
-}
-
-.link {
-    margin-left: 10px;
-    opacity: 1;
-    display: block;
-}
-
 .collapsed {
     width: var(--sidebar-width-collpased);
 
@@ -58,16 +42,5 @@
 
     .lang {
         margin-left: 0;
-    }
-
-    .link {
-        opacity: 0;
-        display: none;
-        transition: 0.2s all;
-    }
-
-    .items {
-        margin-left: 0;
-        align-items: center;
     }
 }

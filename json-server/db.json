@@ -34,6 +34,14 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "Nursultan",
+    "lastname": "Nursik",
+    "age": "24",
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Tyumen",
+    "name": "typicode",
+    "username": "admin",
+    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzBXbJ4Db9eAVcuwRmTCSDiAh-KcRM7iru7w&usqp=CAU"
   }
 }
