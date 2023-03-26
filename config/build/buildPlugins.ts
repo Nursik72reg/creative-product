@@ -5,7 +5,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev }: BuildOptions):webpack.WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions):webpack.WebpackPluginInstance[] {
     const plugins = [
         // Плагин для html
         new HtmlWebpackPlugin({
@@ -21,6 +21,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions):webpack.WebpackPlug
         // Плагин для прокидывание глобальнных переменных в проект
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
         }),
     ];
 
