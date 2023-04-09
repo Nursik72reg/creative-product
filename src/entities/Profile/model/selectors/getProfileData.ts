@@ -6,3 +6,4 @@ export const getProfileData = createSelector(getProfileState, (profileState) => 
 export const getProfileIsLoading = createSelector(getProfileState, (profileState) => profileState?.isLoading);
 export const getProfileError = createSelector(getProfileState, (profileState) => profileState?.error);
 export const getProfileReadonly = createSelector(getProfileState, (profileState) => profileState?.readonly);
+export const getProfileForm = createSelector(getProfileState, (profileState) => profileState?.form);
