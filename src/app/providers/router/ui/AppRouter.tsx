@@ -14,7 +14,6 @@ export const AppRouter = () => (
                         <Suspense fallback={<PageLoader />}>
                             {element}
                         </Suspense>
-
                     </div>
                 )}
             />

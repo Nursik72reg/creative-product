@@ -1,0 +1,28 @@
+.item {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    margin-left: 10px;
+    opacity: 1;
+    display: block;
+}
+
+.icon {
+    fill: var(--inverted-seconary-color);
+}
+
+.collapsed {
+    .link {
+        opacity: 0;
+        display: none;
+        transition: 0.2s all;
+    }
+
+    .items {
+        margin-left: 0;
+        align-items: center;
+    }
+}

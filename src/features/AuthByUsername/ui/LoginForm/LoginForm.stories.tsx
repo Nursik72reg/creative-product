@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { LoginForm } from '@/features/AuthByUsername/ui/LoginForm/LoginForm';
+import LoginForm from './LoginForm';
 import { StoreDecorator } from '../../../../../config/storybook/decorator/storeDecorator';
 
 export default {

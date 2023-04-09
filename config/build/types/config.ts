@@ -9,12 +9,14 @@ export type BuildMode = 'production' | 'development'
 
 export interface BuildEnv {
     mode: BuildMode,
-    PORT: number
+    PORT: number,
+    apiUrl: string
 }
 
 export interface BuildOptions {
     mode: BuildMode,
     paths: BuildPath,
     isDev: boolean
-    port: number
+    port: number,
+    apiUrl: string
 }

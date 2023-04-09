@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta, addDecorator } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Sidebar } from '@/widgets/Sidebar';
 import { ThemeDecorator } from '../../../../../config/storybook/decorator/themeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
