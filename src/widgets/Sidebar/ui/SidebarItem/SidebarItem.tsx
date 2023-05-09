@@ -1,9 +1,11 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import cls from './SidebarItem.module.scss';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
 import { SidebarItemType } from '../../model/items';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { getAuthData } from '@/entities/User';
 
 interface SidebarItemProps {
     className?: string,
@@ -13,7 +15,11 @@ interface SidebarItemProps {
 export const SidebarItem = memo((props: SidebarItemProps) => {
     const { t } = useTranslation(['main', 'about']);
     const { className, item, collapsed } = props;
+    const isAuth = useSelector(getAuthData);
 
+    if (item.authOnly && !isAuth) {
+        return null;
+    }
     return (
         <AppLink
             theme={AppLinkTheme.SECONDARY}

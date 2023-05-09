@@ -21,6 +21,7 @@ export function buildWebpackConfig(options: BuildOptions):webpack.Configuration 
             chunkFilename: 'chunk.[name].[chunkhash:5].js',
             path: build,
             clean: true,
+            publicPath: '/',
         },
         plugins: buildPlugins(options),
         devtool: isDev ? 'inline-source-map' : undefined,

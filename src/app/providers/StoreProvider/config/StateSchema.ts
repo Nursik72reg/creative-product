@@ -9,6 +9,7 @@ import { CounterSchema } from '@/entities/Counter';
 import { UserSchema } from '@/entities/User';
 import { LoginSchema } from '@/features/AuthByUsername/model/types/loginSchema';
 import { ProfileSchema } from '@/entities/Profile';
+import { ArticleDetailsSchema } from '@/entities/Article';
 
 export interface StateSchema {
     count: CounterSchema,
@@ -17,6 +18,7 @@ export interface StateSchema {
     // Асинхронные редюсеры
     loginForm?: LoginSchema,
     profile?: ProfileSchema
+    articleDetails?: ArticleDetailsSchema;
 
 }
 

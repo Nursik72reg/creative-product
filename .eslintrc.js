@@ -35,7 +35,7 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'max-len': ['error', {
+        'max-len': ['warn', {
             code: 140,
             ignoreComments: true,
         }],
