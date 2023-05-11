@@ -35,7 +35,7 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'max-len': ['error', {
+        'max-len': ['warn', {
             code: 140,
             ignoreComments: true,
         }],
@@ -54,6 +54,7 @@ module.exports = {
     globals: {
         __IS_DEV__: true,
         __API__: true,
+        __PROJECT____: true,
     },
     // Для тестов оключаем правила i18next
     overrides: [{
