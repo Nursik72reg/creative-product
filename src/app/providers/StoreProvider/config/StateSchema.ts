@@ -10,6 +10,8 @@ import { UserSchema } from '@/entities/User';
 import { LoginSchema } from '@/features/AuthByUsername/model/types/loginSchema';
 import { ProfileSchema } from '@/entities/Profile';
 import { ArticleDetailsSchema } from '@/entities/Article';
+import { AddCommentFormSchema } from '@/features/addCommentForm';
+import { ArticleDetailsCommentsSchema } from '@/pages/ArticleDetailsPage';
 
 export interface StateSchema {
     count: CounterSchema,
@@ -19,6 +21,8 @@ export interface StateSchema {
     loginForm?: LoginSchema,
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema;
+    articleDetailsComments?: ArticleDetailsCommentsSchema;
+    addCommentForm?: AddCommentFormSchema;
 
 }
 

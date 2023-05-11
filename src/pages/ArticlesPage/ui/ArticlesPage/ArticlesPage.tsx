@@ -11,10 +11,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
     const { t } = useTranslation();
 
-    useEffect(() => {
-
-    }, []);
-
     return (
         <div className={classNames(cls.ArticlesPage, {}, [className])}>
             ARTICLES PAGE
