@@ -1,3 +1,3 @@
-import { NotFoundPage } from '@/pages/NotFoundPage/ui/NotFoundPage';
+import { lazy } from 'react';
 
-export { NotFoundPage };
+export const NotFoundPage = lazy(() => import('./ui/NotFoundPage'));
